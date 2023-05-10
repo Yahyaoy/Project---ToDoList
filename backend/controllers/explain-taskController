@@ -1,0 +1,20 @@
+This code exports several functions related to a task management application. Here is a brief explanation of each function:
+
+asyncHandler: This is a middleware function that wraps asynchronous route handlers and catches any errors that occur during their execution.
+
+createTask: This function creates a new task in the database, based on the request body. It then sends a response with the created task or throws an error if the task data is invalid.
+
+updateTask: This function updates an existing task in the database, based on the request body and the task ID in the URL parameters. It then sends a response with the updated task or throws an error if the task is not found.
+
+deleteTask: This function deletes an existing task from the database, based on the task ID in the URL parameters and the user who created the task. It also deletes all subtasks associated with the task. It then sends a response with a success message or throws an error if the task is not found.
+
+createSubtask: This function creates a new subtask associated with a task, based on the request body and the task ID in the URL parameters. It then sends a response with the created subtask or throws an error if the task is not found or the subtask data is invalid.
+
+updateSubtask: This function updates an existing subtask in the database, based on the request body and the subtask ID in the URL parameters. It then sends a response with the updated subtask or throws an error if the subtask is not found.
+
+deleteSubtask: This function deletes an existing subtask from the database, based on the subtask ID in the URL parameters and the user who created the subtask. It also removes the subtask from the task's subtasks array. It then sends a response with a success message or throws an error if the subtask is not found.
+
+getTasks: This function retrieves all tasks associated with the user who made the request, based on the user ID stored in the request object. It then sends a response with the tasks sorted according to the query parameter sortBy. The tasks are populated with their subtasks, which are in turn populated with the user who created them.
+
+calculateTaskStats: This function calculates some statistics related to the user's tasks, such as the percentage of completed tasks and the average completion rate per day. It then sends a response with the calculated statistics.
+All functions use the async/await syntax to handle asynchronous operations.
